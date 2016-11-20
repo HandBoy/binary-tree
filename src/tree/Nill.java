@@ -4,7 +4,6 @@ public class Nill extends Node{
 	public Nill() {		
 		this.pai = null;
 		this.esquerda = null;
-		this.direita = null;
-		this.palavra = "nill";		
+		this.direita = null;	
 	}
 }

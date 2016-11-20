@@ -1,19 +1,17 @@
 package tree;
 
-public class Node implements Comparable{
+public class Node{
 	protected Node pai;
 	protected Node esquerda;
 	protected Node direita;
 	protected int chave;
-	protected String palavra;
 	protected int acao;	
 
-	public Node(int chave, String palavra) {
+	public Node(int chave) {
 		super();
 		this.pai = null;
 		this.esquerda = null;
 		this.direita = null;
-		this.palavra = palavra;	
 		this.chave = chave;
 	}
 	
@@ -37,12 +35,6 @@ public class Node implements Comparable{
 	}
 	public void setDireita(Node direita) {
 		this.direita = direita;
-	}
-	public String getPalavra() {
-		return palavra;
-	}
-	public void setPalavra(String palavra) {
-		this.palavra = palavra;
 	}		
 	public int getAcao() {
 		return acao;
@@ -63,7 +55,7 @@ public class Node implements Comparable{
 		if(this.getPai() instanceof Nill ){
 			stBuilder.append("NILL"); 
 		} else {
-			stBuilder.append(this.getPai().getPalavra()); 
+			stBuilder.append(this.getPai().getChave()); 
 		}	
 
 		stBuilder.append(", " + this.chave );	
@@ -71,31 +63,21 @@ public class Node implements Comparable{
 		if(this.getEsquerda() instanceof Nill ){
 			stBuilder.append(", NILL"); 
 		} else {
-			stBuilder.append(", " + this.getEsquerda().getPalavra()); 
+			stBuilder.append(", " + this.getEsquerda().getChave()); 
 		}
 		
 		if(this.getDireita() instanceof Nill ){
 			stBuilder.append(", NILL "); 
 		} else {
-			stBuilder.append(", " + this.getDireita().getPalavra()); 
+			stBuilder.append(", " + this.getDireita().getChave()); 
 		}
 		stBuilder.append(")");
 		
 		return stBuilder.toString();		
 	}
 	
-	@Override
-	public int compareTo(Object o) {
-		if(this.palavra.compareToIgnoreCase((String) o) > 0)
-			return 1;
-		else if(this.palavra.compareToIgnoreCase((String) o) < 0)
-			return -1;
-		else
-			return 0;
-	}
-	
 	public String toString(){
-		return this.palavra;
+		return " " + this.chave;
 	}
 	
 }
